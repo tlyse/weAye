@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="baidu-site-verification" content="codeva-Gs2j8qTHHj" />
 <title>weAye集团 - 招聘 - 加入weAye品牌管理集团，探索无限可能，我们很高兴能为您提供成长和发展的机会</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 <!-- All in One SEO 4.0.18 -->
 <meta name="description" content="weAye品牌管理集团提供持续的培训和辅导，积极规划您的职业生涯。我们的员工热爱自己的工作，我们为员工的高留任率感到骄傲。由于集团各项业务全面快速增长，多个部门都有空缺职位，我们很高兴能为您提供成长和发展的机会。如果您想要加入我们，请根据您的技能水平选择合适的团队。无论您拥有怎样的背景或经验水平，我们都将慎重考虑。"/>
 <link rel="canonical" href="career.html" />
@@ -398,7 +398,9 @@ font-size:26px!important;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2; /* 确保在视频层之上 */
-    pointer-events: none; /* 防止点击干扰 */
+    width: 90%; /* 增加宽度限制 */
+    max-width: 600px; /* 桌面端最大宽度 */
+    text-align: center;
   }
  /* 视频容器调整 */
  .k-main-video-bg {
@@ -424,7 +426,20 @@ font-size:26px!important;
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
-
+/* 图片自适应调整 */
+.centered-logo {
+    width: 80%; /* 相对容器宽度 */
+    max-width: 200px; /* 与原始尺寸一致 */
+    height: auto;
+    margin: 0 auto; 
+}
+/* 二维码特殊调整 */
+.elementor-image img[src*="weaye-code.jpg"] {
+    width: 50vw; 
+    max-width: 200px;
+    min-width: 120px;
+    margin: 20px auto;
+}
   /* 原有内容层级调整 */
   .page-content {
     position: relative;
@@ -434,26 +449,39 @@ font-size:26px!important;
    @media (max-width: 768px) and (orientation: portrait) {
     .k-main-video-bg {
      background: url(wp-content/uploads/2020/11/image-3.png) center/cover; /* 竖屏使用静态图 */
-    }
-    border: 3px solid red; /* 可视化容器边界 */
+     position: relative;
+     height: 100vh !important;
+     border: 3px solid red; /* 可视化容器边界 */
     /* 确保边框不引起溢出 */
     box-sizing: border-box;
                 width: 100vw;
                 left: 50%;
                 margin-left: -50vw;
     z-index: 9999; /* 强制置顶 */
-    .k-main-video {
-     opacity: 0; /* 隐藏视频保留DOM */
-     /* 确保绝对定位元素不超过视口 */
-        }
-    .main-logo-container {
-            position: absolute;
-            width: 100%;
-            max-width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0 20px;
-        }
+    }
+
+     .k-main-video {
+        object-position: 60% center; 
+      }
+     .main-logo-container {
+        width: 95%;
+        top: 45%; /* 微调垂直位置 */
+        transform: translate(-50%, -40%); 
+         }
+     .elementor-text-editor p {
+        font-size: 4vw !important; 
+        line-height: 1.4;
+        padding: 0 10px;
+     }
+     .elementor-widget-wrap {
+     overflow: hidden; 
+     }
+
+     .elementor-image {
+     position: relative;
+     z-index: 3;
+     pointer-events: none; /* 防止二维码区域误触 */
+     }
   }
 </style>
 </head>
