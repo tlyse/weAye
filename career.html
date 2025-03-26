@@ -360,8 +360,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-W4JPFN7');</script> 
 <!-- End Google Tag Manager --> 
 <script>var gt_request_uri = './';</script>
-<link rel="icon" href="wp-content/uploads/2020/12/weaye.png" sizes="32x32" />
-<link rel="apple-touch-icon" href="wp-content/uploads/2020/12/weAye.png" />
+<link rel="icon" href="wp-content/uploads/2020/12/weaye.ico" sizes="32x32" />
+<link rel="apple-touch-icon" href="wp-content/uploads/2020/12/weaye.png" />
 <style type="text/css" id="wp-custom-css">
 			p {
 font-size: 22px;
@@ -374,54 +374,52 @@ font-size:26px!important;
 }
 </style>
 <style>
-  /* 主容器定位设置 */
+  /* 主容器定位 */
   .site-main {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      background: #f8f9fa; /* 备用背景色 */
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
   }
-  
-  /* 视频容器配置 */
-  .k-main-video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      filter: brightness(0.8); /* 增强文字对比度 */
+
+  /* Logo居中容器 */
+  .main-logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* 确保在视频层之上 */
+    pointer-events: none; /* 防止点击干扰 */
   }
-  
-  .k-main-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+
+  /* Logo样式优化 */
+  .centered-logo {
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    animation: logo-float 3s ease-in-out infinite;
   }
-  
-  /* 内容层优化 */
-  .content-wrapper {
-      position: relative;
-      z-index: 1;
-      background: rgba(255,255,255,0.95);
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* 增强层次感 */
+
+  /* 微浮动动画 */
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
-  
-  /* 响应式优化 */
-  @media (max-width: 768px) {
-      .k-main-video-bg {
-          display: none; /* 移动端隐藏视频提升性能[6](@ref) */
-      }
-      .content-wrapper {
-          padding: 1rem;
-          background: #fff;
-      }
+
+  /* 原有内容层级调整 */
+  .page-content {
+    position: relative;
+    z-index: 1;
   }
-  </style>
+  /* 移动端降级策略 */
+   @media (max-width: 768px) and (orientation: portrait) {
+    .k-main-video-bg {
+     background: url(wp-content/uploads/2020/11/image-3.png) center/cover; /* 竖屏使用静态图 */
+    }
+    border: 3px solid red; /* 可视化容器边界 */
+    z-index: 9999; /* 强制置顶 */
+    .k-main-video {
+     opacity: 0; /* 隐藏视频保留DOM */
+    }
+  }
+</style>
 </head>
 <body class="page-template-default page page-id-651 wp-custom-logo elementor-default elementor-kit-3481 elementor-page elementor-page-651 elementor-page-1134">
 
@@ -481,7 +479,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </header>
   </div>
 </div>
-<main class="site-main post-651 page type-page status-publish hentry" role="main">
+<main class="site-main post-651 page type-page status-publish hentry"  role="main" class="site-main" style="overflow: visible;">
+
   <header class="page-header">
     <h1 class="entry-title">招聘</h1>
   </header>
@@ -496,6 +495,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
           <img src="wp-content/uploads/2020/11/image-3.png" alt="招聘背景" /> <!-- 备用图片[6](@ref) -->
       </video>
     </div>
+
+<!-- 新增logo容器 -->
+<div class="main-logo-container">   
   <!-- 可滚动内容 -->
   <div class="page-content">
     <div data-elementor-type="wp-page" data-elementor-id="651" class="elementor elementor-651" data-elementor-settings="[]">
@@ -531,6 +533,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </div>
     <div class="post-tags"> </div>
   </div>
+</div>
+
 </main>
 <footer data-elementor-type="footer" data-elementor-id="100" class="elementor elementor-100 elementor-location-footer" data-elementor-settings="[]">
   <div class="elementor-section-wrap">
@@ -779,6 +783,14 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		nav_menu.eq(i).html("<h4>"+nav_menu.eq(i).html()+"</h4>");
 	}
 </script>
-
+<script>
+  // 在<body>标签添加触摸事件
+  document.body.addEventListener('touchstart', function() {
+    const video = document.querySelector('.k-main-video');
+    if(video.paused) {
+      video.play().catch(() => {});
+    }
+  });
+  </script>
 </body>
 </html>
