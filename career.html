@@ -361,9 +361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager --> 
 <script>var gt_request_uri = './';</script>
 <link rel="icon" href="wp-content/uploads/2020/12/weaye.png" sizes="32x32" />
-<link rel="icon" href="wp-content/uploads/2020/12/weaye.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="wp-content/uploads/2020/12/weaye.png" />
-<meta name="msapplication-TileImage" content="wp-content/uploads/2020/12/weaye.png" />
+<link rel="apple-touch-icon" href="wp-content/uploads/2020/12/weAye.png" />
 <style type="text/css" id="wp-custom-css">
 			p {
 font-size: 22px;
@@ -374,7 +372,56 @@ font-size:50px!important;
 body H3{
 font-size:26px!important;
 }
-		</style>
+</style>
+<style>
+  /* 主容器定位设置 */
+  .site-main {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background: #f8f9fa; /* 备用背景色 */
+  }
+  
+  /* 视频容器配置 */
+  .k-main-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      filter: brightness(0.8); /* 增强文字对比度 */
+  }
+  
+  .k-main-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+  }
+  
+  /* 内容层优化 */
+  .content-wrapper {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.95);
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* 增强层次感 */
+  }
+  
+  /* 响应式优化 */
+  @media (max-width: 768px) {
+      .k-main-video-bg {
+          display: none; /* 移动端隐藏视频提升性能[6](@ref) */
+      }
+      .content-wrapper {
+          padding: 1rem;
+          background: #fff;
+      }
+  }
+  </style>
 </head>
 <body class="page-template-default page page-id-651 wp-custom-logo elementor-default elementor-kit-3481 elementor-page elementor-page-651 elementor-page-1134">
 
@@ -394,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
               <div class="elementor-widget-wrap">
                 <div class="elementor-element elementor-element-124e2eb4 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="124e2eb4" data-element_type="widget" data-widget_type="theme-site-logo.default">
                   <div class="elementor-widget-container">
-                    <div class="elementor-image"> <a href="index.html"> <img src="wp-content/uploads/2020/11/weaye-logo-2.svg" title="WEAYE Logo_SVG" alt="WEAYE Logo_SVG" /> </a> </div>
+                    <div class="elementor-image"> <a href="index.html"> <img src="wp-content/uploads/2020/11/weaye.png" title="WEAYE Logo_SVG" alt="WEAYE Logo_SVG" /> </a> </div>
                   </div>
                 </div>
               </div>
@@ -438,112 +485,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
   <header class="page-header">
     <h1 class="entry-title">招聘</h1>
   </header>
+    <!-- 视频容器 -->
+    <div class="k-main-video-bg">
+      <video class="k-main-video" 
+             autoplay muted loop playsinline
+             poster="fallback.jpg"
+             loading="lazy" 
+             preload="metadata"> <!-- 元数据预加载 -->
+          <source src="https://static.yximgs.com/udata/pkg/KS-EFF/recruit/official/index-bg.mp4" type="video/mp4">
+          <img src="fallback.jpg" alt="招聘背景" /> <!-- 备用图片[6](@ref) -->
+      </video>
+    </div>
+  <!-- 可滚动内容 -->
   <div class="page-content">
     <div data-elementor-type="wp-page" data-elementor-id="651" class="elementor elementor-651" data-elementor-settings="[]">
       <div class="elementor-inner">
-        <div class="elementor-section-wrap">
-          <section class="elementor-section elementor-top-section elementor-element elementor-element-5c99997d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5c99997d" data-element_type="section" id="about-banner" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-container elementor-column-gap-default">
-              <div class="elementor-row">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2c12254f" data-id="2c12254f" data-element_type="column">
-                  <div class="elementor-column-wrap elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-6d167b1c title-career-page elementor-widget elementor-widget-heading" data-id="6d167b1c" data-element_type="widget" id="title-about-banner" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h1 class="elementor-heading-title elementor-size-default">招聘</h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="elementor-section elementor-top-section elementor-element elementor-element-7e609db elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7e609db" data-element_type="section" id="career-connect">
+       <section class="elementor-section elementor-top-section elementor-element elementor-element-7e609db elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7e609db" data-element_type="section" id="career-connect">
+			   <div class="elementor-section-wrap">
             <div class="elementor-container elementor-column-gap-default">
               <div class="elementor-row">
                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a3fefce" data-id="a3fefce" data-element_type="column">
                   <div class="elementor-column-wrap elementor-element-populated">
                     <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-8bba46a title elementor-widget elementor-widget-heading" data-id="8bba46a" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h2 class="elementor-heading-title elementor-size-default"><span>联系</span>我们</h2>
-                        </div>
-                      </div>
                       <div class="elementor-element elementor-element-4e9f8cc text-connect elementor-widget elementor-widget-text-editor" data-id="4e9f8cc" data-element_type="widget" data-widget_type="text-editor.default">
                         <div class="elementor-widget-container">
-                          <div class="elementor-text-editor elementor-clearfix">
-                            <p style="text-align: center;">加入weAye集团，探索无限可能！</p>
-                            <p style="text-align: center;">我们邀请您通过如下二维码查询weAye品牌管理集团在中国的职业发展机会。</p>
-                            <p> </p>
-                            <p><img fetchpriority="high" decoding="async" class="aligncenter wp-image-3347 size-full" src="wp-content/uploads/2021/01/career-QR-code.jpg" alt="" width="333" height="339" /></p>
+                          <div class="elementor-text-editor elementor-clearfix" style="color: white;">
+                            <p><img src="wp-content/uploads/2020/11/weaye-logo-2.svg" alt="" width="200"/></p>
+                            <p></p>
+                            <p></p>
+                            <p style="text-align: center;" >加入weAye集团，探索无限可能！</p>
+                            <p style="text-align: center;" >我们邀请您通过如下二维码查询weAye品牌管理集团在中国的职业发展机会。</p>
+
+                            <p><img fetchpriority="high" decoding="async" class="aligncenter wp-image-3347 size-full" src="wp-content/uploads/2021/01/weaye-code.jpg" alt="" width="200" height="200" /></p>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="elementor-section elementor-top-section elementor-element elementor-element-1c80934 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1c80934" data-element_type="section" id="career-join-team" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-container elementor-column-gap-default">
-              <div class="elementor-row">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f47984e" data-id="f47984e" data-element_type="column">
-                  <div class="elementor-column-wrap elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <section class="elementor-section elementor-inner-section elementor-element elementor-element-5de4eb1 content elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5de4eb1" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-default">
-                          <div class="elementor-row">
-                            <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-351c501" data-id="351c501" data-element_type="column">
-                              <div class="elementor-column-wrap elementor-element-populated">
-                                <div class="elementor-widget-wrap">
-                                  <div class="elementor-element elementor-element-936ad41 title elementor-widget elementor-widget-heading" data-id="936ad41" data-element_type="widget" data-widget_type="heading.default">
-                                    <div class="elementor-widget-container">
-                                      <h2 class="elementor-heading-title elementor-size-default">选择我们的<span>原因</span></h2>
-                                    </div>
-                                  </div>
-                                  <div class="elementor-element elementor-element-5ec5653 text elementor-widget elementor-widget-text-editor" data-id="5ec5653" data-element_type="widget" data-widget_type="text-editor.default">
-                                    <div class="elementor-widget-container">
-                                      <div class="elementor-text-editor elementor-clearfix">
-                                        <p style="text-align: left;">weAye集团提供持续的培训和辅导，积极规划您的职业生涯。我们的员工热爱自己的工作，我们为员工的高留任率感到骄傲。</p>
-                                        <p style="text-align: left;">由于集团各项业务全面快速增长，目前多个部门都有空缺职位，我们很高兴能为您提供成长和发展的机会。</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="elementor-section elementor-top-section elementor-element elementor-element-19d097d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="19d097d" data-element_type="section" id="career-departments">
-            <div class="elementor-container elementor-column-gap-default">
-              <div class="elementor-row">
-                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d4bce02 content" data-id="d4bce02" data-element_type="column">
-                  <div class="elementor-column-wrap elementor-element-populated">
-                    <div class="elementor-widget-wrap">
-                      <div class="elementor-element elementor-element-d715ceb title elementor-widget elementor-widget-heading" data-id="d715ceb" data-element_type="widget" data-widget_type="heading.default">
-                        <div class="elementor-widget-container">
-                          <h2 class="elementor-heading-title elementor-size-default">我们的<span>团队</span></h2>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-b1d8e4d text elementor-widget elementor-widget-text-editor" data-id="b1d8e4d" data-element_type="widget" data-widget_type="text-editor.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-text-editor elementor-clearfix">
-                            <p style="text-align: left;">如果您想要加入我们，请根据您的技能水平选择合适的团队。无论您拥有怎样的背景或经验水平，我们都将慎重考虑每份求职信。</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="elementor-element elementor-element-8fbe90a elementor-widget elementor-widget-image" data-id="8fbe90a" data-element_type="widget" data-widget_type="image.default">
-                        <div class="elementor-widget-container">
-                          <div class="elementor-image"> <img decoding="async" src="wp-content/uploads/elementor/thumbs/our-team-pd5mmy3tufuwdm1jox66fgoh7e0l7rbeovc9oclfxm.jpg" title="our-team" alt="our-team" /> </div>
                         </div>
                       </div>
                     </div>
@@ -805,5 +779,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		nav_menu.eq(i).html("<h4>"+nav_menu.eq(i).html()+"</h4>");
 	}
 </script>
+
 </body>
 </html>
